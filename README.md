@@ -2,6 +2,10 @@
 
 Differs from BSA template in that we use ShadcnUI and pnpm.
 
+Install pnpm: `npm install -g pnpm`.
+
+ShadcnUI docs: https://ui.shadcn.com/docs.
+
 Mysten dapp kit: https://sdk.mystenlabs.com/dapp-kit
 
 Counter tutorial: https://docs.sui.io/guides/developer/app-examples/e2e-counter
