@@ -1,31 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "@mysten/dapp-kit/dist/index.css";
-import { defineConfig, loadEnv } from 'vite'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
 
-import { SuiClientProvider, WalletProvider } from "@mysten/dapp-kit";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import App from "./App.tsx";
-import { networkConfig } from "./networkConfig.ts";
-import './index.css'; // Import the styles.css file
-import './output.css';
-
-const network = import.meta.env.VITE_NETWORK || 'testnet';
-
-
-const queryClient = new QueryClient();
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <SuiClientProvider networks={networkConfig} defaultNetwork={network}>
-          <WalletProvider stashedWallet={{
-                name: 'BSA Starter Pack',
-                network: network,
-              }} autoConnect>
-            <App />
-          </WalletProvider>
-        </SuiClientProvider>
-      </QueryClientProvider>
-  </React.StrictMode>,
-);
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
