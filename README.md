@@ -10,7 +10,13 @@ Mysten dapp kit: https://sdk.mystenlabs.com/dapp-kit
 
 Counter tutorial: https://docs.sui.io/guides/developer/app-examples/e2e-counter
 
-# Default REAMDE: React + TypeScript + Vite
+See `docs/ssl.md` for domain validation SSL cert generation.
+
+TODO LIST:
+
+- [ ] verify ecdsa signature in a move smart contract
+
+# DEFAULT REAMDE: React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
