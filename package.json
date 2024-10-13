@@ -15,6 +15,7 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@lapo/asn1js": "^2.0.4",
     "@mysten/dapp-kit": "^0.14.25",
     "@mysten/sui": "^1.12.0",
     "@radix-ui/react-avatar": "^1.1.1",
