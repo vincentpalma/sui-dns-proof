@@ -1,6 +1,6 @@
 // import { DropdownMenu } from "./ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { useCurrentAccount } from "@mysten/dapp-kit";
+import { useCurrentAccount, useDisconnectWallet } from "@mysten/dapp-kit";
 
 // function AccountDr() {
 
@@ -13,40 +13,20 @@ import { useCurrentAccount } from "@mysten/dapp-kit";
 
 // export default AccountDr;
 
-import {
-  Cloud,
-  CreditCard,
-  Keyboard,
-  LifeBuoy,
-  LogOut,
-  Mail,
-  MessageSquare,
-  Plus,
-  PlusCircle,
-  Settings,
-  User,
-  UserPlus,
-  Users,
-} from "lucide-react";
+import { LogOut } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
 export function DropdownMenuDemo() {
   const currentAccount = useCurrentAccount();
+  const { mutate: disconnectWallet } = useDisconnectWallet();
 
   return (
     <DropdownMenu>
@@ -60,15 +40,12 @@ export function DropdownMenuDemo() {
               // alt={selectedTeam.label}
               className="grayscale"
             />
-            <AvatarFallback>SC</AvatarFallback>
+            <AvatarFallback>SUI</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        {/* <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator /> */}
-
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={() => disconnectWallet()}>
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>

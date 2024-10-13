@@ -1,44 +1,18 @@
-// import { Metadata } from "next"
-// import Image from "next/image"
 import { Separator } from "@/components/ui/separator";
-import { StyleMarker } from "../../node_modules/@mysten/dapp-kit/src/components/styling/StyleMarker";
-// import { Button } from '../../node_modules/@mysten/dapp-kit/src/components/ui/Button';
-import type { ButtonHTMLAttributes, ReactNode } from "react";
-
 import { Button } from "@/components/ui/button";
-// import { ConnectButton, useCurrentAccount } from "@mysten/dapp-kit";
 import { useCurrentAccount } from "@mysten/dapp-kit";
 import { ConnectButton } from "@/components/ConnectButton";
-
-import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
-// import Navbar from "@/components/Navbar";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MainNav } from "@/components/main-nav";
-import { Overview } from "@/components/overview";
-import { RecentSales } from "@/components/recent-sales";
-import { Search } from "@/components/search";
-import TeamSwitcher from "@/components/team-switcher";
-import { UserNav } from "@/components/user-nav";
 
 function Dashboard() {
   const account = useCurrentAccount();
   return (
     <>
-      <div>
-        <div className="border-b">
-          <div className="fond-bold flex h-16 items-center px-4">
-            DNS Verifier
-            <div className="ml-auto flex items-center space-x-4">
-              <ConnectButton />
-            </div>
+      <div className="border-b">
+        <div className="fond-bold flex h-16 items-center px-4">
+          DNS Verifier
+          <div className="ml-auto flex items-center space-x-4">
+            <ConnectButton />
           </div>
         </div>
 
@@ -52,7 +26,7 @@ function Dashboard() {
               />
 
               <Button
-                className="h-[60px] w-[400px] text-3xl font-bold tracking-tight"
+                className="h-[60px] w-[400px] text-2xl font-bold tracking-tight"
                 variant="outline"
               >
                 Claim domain ownership
@@ -69,7 +43,7 @@ function Dashboard() {
               />
 
               <Button
-                className="h-[60px] w-[400px] text-3xl font-bold tracking-tight"
+                className="h-[60px] w-[400px] text-2xl font-bold tracking-tight"
                 variant="outline"
               >
                 Verify domain ownership
@@ -94,19 +68,3 @@ function Dashboard() {
 }
 
 export default Dashboard;
-{
-  /* <Tabs defaultValue="overview" className="space-y-4">
-              <TabsContent value="overview" className="space-y-4">
-                <div className="mt-12 flex items-center justify-center">
-                  <div>
-                    <Input
-                      type="search"
-                      placeholder="0x3827403908409"
-                      className="md:w-[400px] lg:w-[600px]"
-                    />
-                  </div>
-                </div>
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7"></div>
-              </TabsContent>
-            </Tabs> */
-}
