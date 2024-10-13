@@ -1,16 +1,14 @@
-import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { useCurrentAccount } from "@mysten/dapp-kit";
 import { ConnectButton } from "@/components/ConnectButton";
 import { Input } from "@/components/ui/input";
 
-function Dashboard() {
+function Claim(props: { domain: string }) {
   const account = useCurrentAccount();
   return (
     <>
       <div className="border-b">
         <div className="fond-bold flex h-16 items-center px-4">
-          {/* TODO: make it link to "/" */}
           DNS Verifier
           <div className="ml-auto flex items-center space-x-4">
             <ConnectButton />
@@ -20,35 +18,18 @@ function Dashboard() {
         {account && (
           <div className="-mt-24 flex min-h-screen flex-col items-center justify-center">
             <div className="flex flex-col items-center space-y-6">
+              Claim ownership of <b>{props.domain}</b>
               <Input
                 type="search"
-                placeholder="https://example.com"
+                placeholder="fullchain.pem"
                 className="text-l h-[40px] w-[400px] px-8 py-4 tracking-tight"
-              />
-
-              <Button
-                className="h-[60px] w-[400px] text-2xl font-bold tracking-tight"
-                variant="outline"
-              >
-                Claim domain ownership
-              </Button>
-
-              <div className="h-[8px]"></div>
-              <Separator className="w-full max-w-[400px]" />
-              <div className="h-[8px]"></div>
-
+              ></Input>
               <Input
                 type="search"
-                placeholder="0x38274038478908409"
+                placeholder="private.pem"
                 className="text-l h-[40px] w-[400px] px-8 py-4 tracking-tight"
-              />
-
-              <Button
-                className="h-[60px] w-[400px] text-2xl font-bold tracking-tight"
-                variant="outline"
-              >
-                Verify domain ownership
-              </Button>
+              ></Input>
+              <Button>Submit</Button>
             </div>
           </div>
         )}
@@ -68,4 +49,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Claim;

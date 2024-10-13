@@ -1,7 +1,5 @@
 # Some info
 
-Differs from BSA template in that we use ShadcnUI and pnpm.
-
 Install pnpm: `npm install -g pnpm`.
 
 ShadcnUI docs: https://ui.shadcn.com/docs.
@@ -11,6 +9,10 @@ Mysten dapp kit: https://sdk.mystenlabs.com/dapp-kit
 Counter tutorial: https://docs.sui.io/guides/developer/app-examples/e2e-counter
 
 See `docs/ssl.md` for domain validation SSL cert generation.
+
+Useful website to play with X.509 certificates: https://lapo.it/asn1js/
+
+This project only support ssl certificates with the `ecdsa-with-SHA256` signature algorithm because it is the only signature algorithm supported by the `sui::ecdsa_r1` library.
 
 TODO LIST:
 
