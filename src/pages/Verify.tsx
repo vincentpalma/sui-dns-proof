@@ -1,8 +1,10 @@
 import { useCurrentAccount } from "@mysten/dapp-kit";
 import { ConnectButton } from "@/components/ConnectButton";
+import { useParams } from "react-router-dom";
 
-function Verify(props: { address: string }) {
+function Verify() {
   const account = useCurrentAccount();
+  const { address } = useParams();
   return (
     <>
       <div className="border-b">
@@ -16,7 +18,7 @@ function Verify(props: { address: string }) {
         {account && (
           <div className="-mt-24 flex min-h-screen flex-col items-center justify-center">
             <div className="flex flex-col items-center space-y-6">
-              <b>{props.address}</b> owns:
+              <b>{address}</b> owns:
               {
                 // TODO: get data from contract
               }

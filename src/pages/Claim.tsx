@@ -2,9 +2,11 @@ import { Button } from "@/components/ui/button";
 import { useCurrentAccount } from "@mysten/dapp-kit";
 import { ConnectButton } from "@/components/ConnectButton";
 import { Input } from "@/components/ui/input";
+import { useParams } from "react-router-dom";
 
-function Claim(props: { domain: string }) {
+function Claim() {
   const account = useCurrentAccount();
+  const { domain } = useParams();
   return (
     <>
       <div className="border-b">
@@ -18,7 +20,7 @@ function Claim(props: { domain: string }) {
         {account && (
           <div className="-mt-24 flex min-h-screen flex-col items-center justify-center">
             <div className="flex flex-col items-center space-y-6">
-              Claim ownership of <b>{props.domain}</b>
+              Claim ownership of <b>{domain}</b>
               <Input
                 type="search"
                 placeholder="fullchain.pem"

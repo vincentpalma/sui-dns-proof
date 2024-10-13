@@ -3,7 +3,7 @@
 The `debug` CA in `dns_verifier`.
 
 ```sh
-openssl req -x509 -newkey ec -pkeyopt ec_paramgen_curve:secp384r1 -days 3650 \
+openssl req -x509 -newkey ec -pkeyopt ec_paramgen_curve:secp256r1 -days 3650 \
   -nodes -keyout example.com.key -out example.com.crt -subj "/CN=example.com" \
   -addext "subjectAltName=DNS:example.com,DNS:*.example.com,IP:10.0.0.1"
 ```

@@ -3,9 +3,14 @@ import { Button } from "@/components/ui/button";
 import { useCurrentAccount } from "@mysten/dapp-kit";
 import { ConnectButton } from "@/components/ConnectButton";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
 
 function Dashboard() {
   const account = useCurrentAccount();
+
+  const [domain, setDomain] = useState("");
+  const [address, setAddress] = useState("");
+
   return (
     <>
       <div className="border-b">
@@ -24,11 +29,15 @@ function Dashboard() {
                 type="search"
                 placeholder="https://example.com"
                 className="text-l h-[40px] w-[400px] px-8 py-4 tracking-tight"
+                onChange={(e) => setDomain(e.target.value)}
               />
 
               <Button
                 className="h-[60px] w-[400px] text-2xl font-bold tracking-tight"
                 variant="outline"
+                onClick={() => {
+                  window.location.href = `/claim/${domain}`;
+                }}
               >
                 Claim domain ownership
               </Button>
@@ -41,11 +50,15 @@ function Dashboard() {
                 type="search"
                 placeholder="0x38274038478908409"
                 className="text-l h-[40px] w-[400px] px-8 py-4 tracking-tight"
+                onChange={(e) => setAddress(e.target.value)}
               />
 
               <Button
                 className="h-[60px] w-[400px] text-2xl font-bold tracking-tight"
                 variant="outline"
+                onClick={() => {
+                  window.location.href = `/verify/${address}`;
+                }}
               >
                 Verify domain ownership
               </Button>
