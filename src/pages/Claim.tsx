@@ -3,10 +3,25 @@ import { useCurrentAccount } from "@mysten/dapp-kit";
 import { ConnectButton } from "@/components/ConnectButton";
 import { Input } from "@/components/ui/input";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 function Claim() {
   const account = useCurrentAccount();
   const { domain } = useParams();
+
+  const [cert, setCert] = useState("");
+  const [privateKey, setPrivateKey] = useState("");
+
+  function signUsingPrivateKey(privateKey: string, message: string) {
+    // TODO: sign using private key
+    return "";
+  }
+
+  const handleSubmit = () => {
+    const signedMessage = signUsingPrivateKey(privateKey, account!.address);
+    // TODO: call contract function claim_domain(cert, signedMessage)
+  };
+
   return (
     <>
       <div className="border-b">
@@ -25,13 +40,15 @@ function Claim() {
                 type="search"
                 placeholder="fullchain.pem"
                 className="text-l h-[40px] w-[400px] px-8 py-4 tracking-tight"
+                onChange={(e) => setCert(e.target.value)}
               ></Input>
               <Input
                 type="search"
                 placeholder="private.pem"
                 className="text-l h-[40px] w-[400px] px-8 py-4 tracking-tight"
+                onChange={(e) => setPrivateKey(e.target.value)}
               ></Input>
-              <Button>Submit</Button>
+              <Button onClick={handleSubmit}>Submit</Button>
             </div>
           </div>
         )}
